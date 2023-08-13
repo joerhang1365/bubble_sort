@@ -3,6 +3,7 @@
 
 typedef int i32;
 
+// moves value a to value b and vice versa
 void swap(i32 *a, i32 *b)
 {
   i32 temp = *a;
@@ -11,6 +12,7 @@ void swap(i32 *a, i32 *b)
   return;
 }
 
+// sort each element one at a time, left to right, from largest to smallest
 void sort(i32 array[], i32 length)
 {
   bool swapped = false;
@@ -19,13 +21,14 @@ void sort(i32 array[], i32 length)
     swapped = false;
     for(i32 j = 0; j < length - i - 1; j++)
     {
+      // the largest element keeps getting pushed further and further back
       if(array[j] > array[j + 1])
       {
         swap(&array[j], &array[j + 1]);
         swapped = true;
       }
     }
-    // if no two elements are swapped
+    // if there are no more elements that need to be swapped end sort
     if(swapped == false)
     {
       break;
